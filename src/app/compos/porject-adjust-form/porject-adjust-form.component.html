@@ -1,0 +1,105 @@
+<mat-accordion *ngIf="project" displayMode="default" [multi]="true" [hideToggle]="false">
+  <mat-expansion-panel [hideToggle]="false">
+    <mat-expansion-panel-header class="panel-header">
+      <mat-panel-title>
+        <h3>{{project.name}}</h3>
+      </mat-panel-title>
+      <mat-panel-description class="description">
+        <h4>Priority: {{project.scores.priority}}</h4>
+        <h4>Possibility: {{project.scores.possibility}}</h4>
+        <mat-chip-list class="result" *ngIf="project.result" [ngSwitch]="project.result">
+          <mat-chip *ngSwitchCase="'s'" color="accent" selected>Success</mat-chip>
+          <mat-chip *ngSwitchCase="'h'" color="primary" selected>Pending</mat-chip>
+          <mat-chip *ngSwitchCase="'f'" >Failure</mat-chip>
+        </mat-chip-list>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="wrapper">
+      <div class="left">
+        <h3>Project Details:</h3>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Project Name" [(ngModel)]="project.name">
+          <button mat-button *ngIf="project.name" matSuffix 
+                  mat-icon-button aria-label="Clear" (click)="project.name=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Start Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Size" [(ngModel)]="project.size">
+            <mat-option *ngFor="let s of size" [value]="s.value">
+              {{s.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Platform" [(ngModel)]="project.platform" multiple>
+            <mat-option *ngFor="let p of platform" [value]="p.value">
+              {{p.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="check-box-outer">
+          <div class="check-box">
+            <label>Project Type: </label>
+            <mat-radio-group class="radio-group" [(ngModel)]="project.type">
+              <mat-radio-button class="radio-margin" *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="check-box">
+            <label>Business Value: </label>
+            <mat-radio-group class="radio-group" [(ngModel)]="project.businessValue">
+              <mat-radio-button class="radio-margin" *ngFor="let b of businessValues" [value]="b">
+                {{b}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="check-box">
+            <label>Visibility: </label>
+            <mat-radio-group class="radio-group" [(ngModel)]="project.visibility">
+              <mat-radio-button class="radio-margin" *ngFor="let v of visibility" [value]="v">
+                {{v}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="right">
+        <h3>Tech Stack:</h3>
+        <mat-chip-list [multiple]="true">
+          <mat-chip *ngFor="let tech of techs; let i = index;" color="accent" class="techlist" [selectable]="true"
+            [selected]="selected[i]" (click)="click($event, i)">{{tech}}</mat-chip>
+        </mat-chip-list>
+
+        <div class="optional-check-box">
+          <label>Deployment (optional): </label>
+          <mat-radio-group [(ngModel)]="project.deployment">
+            <mat-radio-button class="radio-margin" *ngFor="let d of deployment" [value]="d">
+              {{d}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+    </div>
+
+    <mat-action-row>
+      <button mat-flat-button color="primary" (click)="save()">Save change & Re-calculate</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
