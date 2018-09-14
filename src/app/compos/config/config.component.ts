@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IConfig, IFormular } from '../../interface';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IFormular } from '../../interface';
 
 @Component({
   selector: 'app-config',
@@ -9,6 +9,7 @@ import { IConfig, IFormular } from '../../interface';
 export class ConfigComponent implements OnInit {
 
   @Input() formulas: IFormular[];
+  @Output() newFormulas: EventEmitter<IFormular[]> = new EventEmitter<IFormular[]>();
 
   constructor() { }
 
@@ -24,6 +25,9 @@ export class ConfigComponent implements OnInit {
       this.formulas[1] = event;
       console.log(this.formulas[1]);
     }
+
+    // call save config API
+    this.newFormulas.emit(this.formulas);
   }
 
 }

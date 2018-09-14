@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {IProject} from '../../interface';
+import {IProject, IFormular} from '../../interface';
 import { CalculatorService, ProjectsService } from '../../services/projects.service';
 
 @Component({
@@ -11,12 +11,12 @@ export class PorjectAdjustFormComponent implements OnInit {
 
   @Input() project: IProject;
   @Input() techs: string[];
+  @Input() option1;
   @Output() saveBtnClicked = new EventEmitter();
   thistech: string[] = [];
   selected: boolean[] = [];
 
   types: string[] = ['POC', 'Tool', 'Prototype'];
-  businessValues: string[] = ['Low', 'Medium', 'High'];
   visibility: string[] = ['Low', 'Medium', 'High'];
   deployment: string[] = ['AWS', 'Azure', 'Heroku', 'Other'];
   platform = [

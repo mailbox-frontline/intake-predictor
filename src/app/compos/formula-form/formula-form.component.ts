@@ -21,6 +21,7 @@ export class FormulaFormComponent implements OnInit {
   }
   saveConfig() {
     console.log('saving this config...');
+    this.formula.updateDate = Date.now();
     this.configSaved.emit(this.formula);
   }
 

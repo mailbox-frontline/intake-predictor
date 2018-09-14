@@ -4,7 +4,7 @@
       {{formula.name}}
     </mat-panel-title>
     <mat-panel-description>
-      Last update: {{formula.updateDate}}
+      Last update: {{formula.updateDate | date:'mediumDate'}}
     </mat-panel-description>
   </mat-expansion-panel-header>
 
@@ -16,16 +16,16 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Weight" value="{{f.weight}}">
+        <input type="number" matInput placeholder="Weight" [(ngModel)]="f.weight">
       </mat-form-field>
 
       <div class="o-v-group">
         <div *ngFor="let o of f.options; let i = index;">
           <mat-form-field>
-            <input matInput placeholder="Option-{{i}}" value="{{o.option}}">
+            <input type="text" matInput placeholder="Option-{{i}}" [(ngModel)]="o.option">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Option Weight" value="{{o.oWeight}}">
+            <input type="number" matInput placeholder="Option Weight" [(ngModel)]="o.oWeight">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Value" value="{{o.oWeight * f.weight | number : '1.2-2'}}">

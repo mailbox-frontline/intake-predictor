@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { IProject, IScore } from '../interface';
+import { IProject, IScore, IFormular } from '../interface';
 import { Observable } from 'rxjs';
 import { ProjectsService } from '../services/projects.service';
 import { map, reduce, flatMap, concatAll } from 'rxjs/operators';
@@ -78,3 +78,16 @@ export class WaitingProjectsResolver implements Resolve<IProject[]> {
     );
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AllFormulasResolver implements Resolve<IFormular[]> {
+
+  constructor(private ps: ProjectsService) { }
+
+  resolve(): Observable<IFormular[]> {
+    return this.ps.getAllFormulas();
+  }
+}
+

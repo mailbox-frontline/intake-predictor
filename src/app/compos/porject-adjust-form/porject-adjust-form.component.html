@@ -59,9 +59,9 @@
             </mat-radio-group>
           </div>
           <div class="check-box">
-            <label>Business Value: </label>
+            <label>{{option1.name}}: </label>
             <mat-radio-group class="radio-group" [(ngModel)]="project.businessValue">
-              <mat-radio-button class="radio-margin" *ngFor="let b of businessValues" [value]="b">
+              <mat-radio-button class="radio-margin" *ngFor="let b of option1.options" [value]="b">
                 {{b}}
               </mat-radio-button>
             </mat-radio-group>

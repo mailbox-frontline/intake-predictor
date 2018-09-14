@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {IProject, ProjectMaker} from '../interface';
+import {IProject, ProjectMaker, IFormular} from '../interface';
 import {throwError, Observable} from 'rxjs';
 import {catchError, retry, map, filter} from 'rxjs/operators';
 import { resolve } from 'url';
@@ -14,6 +14,10 @@ export class ProjectsService {
 
   getAllProjects() {
     return this.http.get < IProject[] > (this.BASE_URL + '/projects').pipe(retry(2), catchError(this.handleError));
+  }
+
+  getAllFormulas() {
+    return this.http.get < IFormular[] > (this.BASE_URL + '/formulas').pipe(retry(2), catchError(this.handleError));
   }
 
   updateProjectbyId(project: IProject): Observable<IProject> {
