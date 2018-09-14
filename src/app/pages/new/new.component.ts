@@ -26,9 +26,6 @@ export class NewComponent implements OnInit {
     this.s = this.getChartDataFromScores(this.score);
     this.q = this.getChartDataFromProject(this.waitingProjects);
 
-    console.log(this.techs);
-
-
     this.chart = new Chart('canvas', {
       type: 'scatter',
       data: {

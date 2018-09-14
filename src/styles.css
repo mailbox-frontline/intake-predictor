@@ -8,3 +8,7 @@ body {
   background: #ece9e6;
   background: linear-gradient(to right, #ece9e6, #ffffff);
 }
+ #footer{
+   text-align: center;
+   font-weight: 200;
+ }

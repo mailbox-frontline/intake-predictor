@@ -76,8 +76,8 @@
     {
       "id": 4,
       "name": "Biometrics Phase 3",
-      "businessValue": "Low",
-      "visibility": "Low",
+      "businessValue": "High",
+      "visibility": "High",
       "size": 13,
       "technologyStack": [
         "Raspberry Pi",
@@ -91,11 +91,14 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "web"
+        "web",
+        "rpi",
+        "jira",
+        "arduino"
       ],
       "scores": {
-        "priority": 0.38,
-        "probability": 0.87
+        "priority": 0.98,
+        "probability": 0.98
       },
       "result": "s"
     },
