@@ -12,8 +12,9 @@ import { AppComponent } from './app.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import {PorjectAdjustFormComponent} from './compos/porject-adjust-form/porject-adjust-form.component';
 import {NewComponent} from './pages/new/new.component';
-import {ConfigComponent} from './pages/config/config.component';
 import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
+import { ConfigComponent } from './compos/config/config.component';
+import { FormulaFormComponent } from './compos/formula-form/formula-form.component';
 
 
 
@@ -21,7 +22,7 @@ import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/projects',
+    redirectTo: '/new',
     pathMatch: 'full',
   }, {
     path: 'projects',
@@ -39,9 +40,6 @@ const appRoutes: Routes = [
       scores: ScoreResolver,
       allProjectNames: ProjectNameResolver,
     }
-  }, {
-    path: 'config',
-    component: ConfigComponent,
   }
 ];
 
@@ -51,8 +49,9 @@ const appRoutes: Routes = [
     ProjectsComponent,
     PorjectAdjustFormComponent,
     NewComponent,
+    ScrollTrackerDirective,
     ConfigComponent,
-    ScrollTrackerDirective
+    FormulaFormComponent
   ],
   imports: [
     BrowserModule,

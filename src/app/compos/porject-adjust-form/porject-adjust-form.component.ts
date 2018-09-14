@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IProject} from '../../interface';
 import { CalculatorService, ProjectsService } from '../../services/projects.service';
 
@@ -11,6 +11,7 @@ export class PorjectAdjustFormComponent implements OnInit {
 
   @Input() project: IProject;
   @Input() techs: string[];
+  @Output() saveBtnClicked = new EventEmitter();
   thistech: string[] = [];
   selected: boolean[] = [];
 
@@ -76,7 +77,7 @@ export class PorjectAdjustFormComponent implements OnInit {
       });
   }
 
-  click(e, i) {
+  onClickChip(e, i) {
     const selectedChip = e.path[0].textContent;
     if (this.selected[i] === false) {
       this.thistech.push(selectedChip);
@@ -103,6 +104,8 @@ export class PorjectAdjustFormComponent implements OnInit {
       this.ps.updateProjectbyId(this.project).subscribe(
         (response) => console.log(response)
       );
+
+      this.saveBtnClicked.emit('saved');
 
     });
   }

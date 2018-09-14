@@ -1,0 +1,5 @@
+<mat-accordion displayMode="default" [multi]="true" [hideToggle]="false">
+  <ng-template ngFor [ngForOf]="formulas" let-formula>
+    <app-formula-form [formula]="formula" (configSaved)="onConfigSaved($event)"></app-formula-form>
+  </ng-template>
+</mat-accordion>

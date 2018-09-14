@@ -21,6 +21,22 @@ export interface IScore {
   probability: number;
 }
 
+export interface IFormular {
+  name: string;
+  updateDate: string;
+  formula: IConfig[];
+}
+export interface IConfig {
+  title: string;
+  weight: number;
+  options: IOption[];
+}
+
+export interface IOption {
+  option: string;
+  oWeight: number;
+}
+
 export class ProjectMaker {
   static create(p: IProject) {
     return {

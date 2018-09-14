@@ -1,0 +1,43 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{formula.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Last update: {{formula.updateDate}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+
+  <div>
+    <div class="formula-form" *ngFor="let f of formula.formula">
+      <mat-form-field>
+        <input matInput placeholder="Title" [(ngModel)]="f.title">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Weight" value="{{f.weight}}">
+      </mat-form-field>
+
+      <div class="o-v-group">
+        <div *ngFor="let o of f.options; let i = index;">
+          <mat-form-field>
+            <input matInput placeholder="Option-{{i}}" value="{{o.option}}">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Option Weight" value="{{o.oWeight}}">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Value" value="{{o.oWeight * f.weight | number : '1.2-2'}}">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <mat-action-row>
+    <button mat-stroked-button (click)="discardConfig()">Discard</button>
+    <button mat-flat-button color="primary" (click)="saveConfig()">Save changes</button>
+  </mat-action-row>
+</mat-expansion-panel>

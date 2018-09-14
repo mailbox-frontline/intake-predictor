@@ -109,8 +109,8 @@ export class NewComponent implements OnInit {
     const all = [];
     projects.forEach(s => {
       const a = {};
-      a['y'] = s.scores.priority + 0.1;
-      a['x'] = s.scores.probability - 0.1;
+      a['y'] = (s.scores.priority + 0.1).toFixed(2);
+      a['x'] = (s.scores.probability - 0.1).toFixed(2);
       all.push(a);
     });
 
@@ -173,5 +173,10 @@ export class NewComponent implements OnInit {
    this.chart.tooltip._active = activeElements;
    this.chart.tooltip.update(true);
    this.chart.draw();
+  }
+
+  updateTheChart() {
+    this.chart.update();
+    console.log('update chart');
   }
 }

@@ -1,5 +1,17 @@
 # IntakePredictor
 
+
+
+## Todos:
+
+### [Sept 14]
+* Chart redraw
+* New project input
+* Saving new config
+* Form validation
+* Add New Project to waiting list, add to all projests
+* config, wating list API
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
 ## Development server

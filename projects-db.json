@@ -98,7 +98,7 @@
       ],
       "scores": {
         "priority": 0.98,
-        "probability": 0.98
+        "probability": 1
       },
       "result": "s"
     },
@@ -119,8 +119,8 @@
         "arduino"
       ],
       "scores": {
-        "priority": 0.5,
-        "probability": 0.44
+        "priority": 0.55,
+        "probability": 0.4
       },
       "result": "s"
     },
@@ -143,7 +143,7 @@
       ],
       "scores": {
         "priority": 0.83,
-        "probability": 1.14
+        "probability": 0.9199999999999999
       },
       "result": "s"
     },

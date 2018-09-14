@@ -31,7 +31,7 @@ export class TechStackResolver implements Resolve<string[]> {
     return this.ps.getAllProjects().pipe(
       map(projects => projects.map(p => p.technologyStack)),
       map(array => [].concat.apply([], array)),
-      map(a => Array.from(new Set(a)))
+      map(a => Array.from(new Set(a)) as string[])
     );
   }
 }
@@ -74,7 +74,7 @@ export class WaitingProjectsResolver implements Resolve<IProject[]> {
 
   resolve(): Observable<IProject[]> {
     return this.ps.getAllProjects().pipe(
-      map(projects => projects.slice(3, 6))
+      map(projects => projects.slice(8, 12))
     );
   }
 }
