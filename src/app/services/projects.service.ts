@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {IProject} from '../interface';
-import {throwError} from 'rxjs';
+import {IProject, ProjectMaker} from '../interface';
+import {throwError, Observable} from 'rxjs';
 import {catchError, retry, map, filter} from 'rxjs/operators';
 import { resolve } from 'url';
 
@@ -13,20 +13,14 @@ export class ProjectsService {
   constructor(private http: HttpClient) {}
 
   getAllProjects() {
-    return this.http.get < IProject[] > (`${this.BASE_URL}/projects`).pipe(retry(2), catchError(this.handleError));
+    return this.http.get < IProject[] > (this.BASE_URL + '/projects').pipe(retry(2), catchError(this.handleError));
   }
 
-  getTechStack() {
-    return this.http.get < string[] > (`${this.BASE_URL}/techStack`).pipe(retry(2), catchError(this.handleError));
-  }
-
-  getAllScores() {
-    return this.http.get < IProject[] > (`${this.BASE_URL}/projects`)
-      .pipe(
-        retry(2),
-        map(projects => projects.map(project => project.scores)),
-        catchError(this.handleError)
-      );
+  updateProjectbyId(project: IProject): Observable<IProject> {
+    return this.http.put<IProject>(this.BASE_URL + '/projects/' + project.id, project).pipe(
+      map(response => ProjectMaker.create(response),
+      catchError(this.handleError))
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -66,8 +60,8 @@ export class CalculatorService {
     return priority;
   }
 
-  possibilityCalculator = (project: IProject) => {
-    let possibility: number, bl;
+  probabilityCalculator = (project: IProject) => {
+    let probability: number, bl;
     const {type, technologyStack, size, platform} = project;
 
     const typeValue = this.getTypeValue(type);
@@ -80,8 +74,8 @@ export class CalculatorService {
       bl = 0;
     }
 
-    possibility = typeValue + techs + bl + sizeValue;
-    return +possibility.toFixed(2);
+    probability = typeValue + techs + bl + sizeValue;
+    return +probability.toFixed(2);
   }
 
 

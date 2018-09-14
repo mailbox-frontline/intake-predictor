@@ -13,6 +13,7 @@ import {
   MatChipsModule,
   MatProgressSpinnerModule,
   MatCardModule,
+  MatButtonToggleModule,
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 
@@ -32,7 +33,8 @@ import {FormsModule} from '@angular/forms';
     MatNativeDateModule,
     MatChipsModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
   ],
   exports: [
     MatButtonModule,
@@ -50,6 +52,7 @@ import {FormsModule} from '@angular/forms';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatButtonToggleModule,
   ]
 })
 export class MaterialModule {}

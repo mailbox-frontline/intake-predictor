@@ -1,342 +1,426 @@
 {
   "projects": [
     {
-      "name": "angular training",
+      "id": 1,
+      "name": "Angular Training",
       "businessValue": "Low",
       "visibility": "High",
       "size": 8,
-      "technologyStack": ["Angular"],
+      "technologyStack": [
+        "Angular"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Tool",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
-        "priority": 0.37,
-        "possibility": 0.96
+        "priority": 0.47,
+        "probability": 0.81
       },
       "result": "s"
-    }, {
+    },
+    {
+      "id": 2,
       "name": "Biometrics Phase 1",
       "businessValue": "Low",
       "visibility": "Low",
       "size": 8,
-      "technologyStack": ["Arduino", "Photon", "Door Sensor", "Raspberry Pi", "Azure cognitive api", "tvOS"],
+      "technologyStack": [
+        "Arduino",
+        "Photon",
+        "Door Sensor",
+        "Raspberry Pi",
+        "Azure cognitive api",
+        "tvOS"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
-        "priority": 0.46,
-        "possibility": 0.97
+        "priority": 0.42,
+        "probability": 0.91
       },
       "result": "s"
-    }, {
+    },
+    {
+      "id": 3,
       "name": "Biometrics Phase 2",
       "businessValue": "Low",
       "visibility": "Low",
       "size": 8,
-      "technologyStack": ["Raspberry Pi", "Web", "Azure cognitive api", "D3", "Data Visulization", "node"],
+      "technologyStack": [
+        "Raspberry Pi",
+        "Web",
+        "Azure cognitive api",
+        "D3",
+        "Data Visulization",
+        "node"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
-        "priority": 0.51,
-        "possibility": 1.02
+        "priority": 0.42,
+        "probability": 0.91
       },
-      "priority": 0.51,
-      "possibility": 1.02,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 4,
       "name": "Biometrics Phase 3",
       "businessValue": "Low",
       "visibility": "Low",
       "size": 13,
-      "technologyStack": ["Raspberry Pi", "Web", "Azure cognitive api", "D3", "Data Visulization", "node"],
+      "technologyStack": [
+        "Raspberry Pi",
+        "Web",
+        "Azure cognitive api",
+        "D3",
+        "Data Visulization",
+        "node"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
-        "priority": 0.43,
-        "possibility": 0.94
+        "priority": 0.38,
+        "probability": 0.87
       },
-      "priority": 0.43,
-      "possibility": 0.94,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 5,
       "name": "Card Tap",
       "businessValue": "Medium",
       "visibility": "Low",
       "size": 3,
-      "technologyStack": ["Arduino", "NFC"],
+      "technologyStack": [
+        "Arduino",
+        "NFC"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["arduino"],
+      "platform": [
+        "arduino"
+      ],
       "scores": {
         "priority": 0.5,
-        "possibility": 0.44
+        "probability": 0.44
       },
-      "priority": 0.55,
-      "possibility": 0.44,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 6,
       "name": "Monarch Phase 1 - web",
       "businessValue": "High",
       "visibility": "Medium",
       "size": 13,
-      "technologyStack": ["Web", "Azure", "Angular"],
+      "technologyStack": [
+        "Web",
+        "Azure",
+        "Angular"
+      ],
       "blacklist": null,
       "deployment": "Azure",
       "type": "Prototype",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
         "priority": 0.83,
-        "possibility": 1.14
+        "probability": 1.14
       },
-      "priority": 0.83,
-      "possibility": 1.14,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 7,
       "name": "Monarch Phase 2 - iOS",
       "businessValue": "High",
       "visibility": "Medium",
       "size": 13,
-      "technologyStack": ["iOS", "NFC"],
+      "technologyStack": [
+        "iOS",
+        "NFC"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Prototype",
-      "platform": ["ios"],
+      "platform": [
+        "ios"
+      ],
       "scores": {
         "priority": 0.73,
-        "possibility": 0.69
+        "probability": 0.69
       },
-      "priority": 0.73,
-      "possibility": 0.69,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 8,
       "name": "Monarch Phase 3 - flooeplan",
       "businessValue": "High",
       "visibility": "Medium",
       "size": 8,
-      "technologyStack": ["Web", "Azure", "Angular", "Skype 4 Business"],
+      "technologyStack": [
+        "Web",
+        "Azure",
+        "Angular",
+        "Skype 4 Business"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Prototype",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
         "priority": 0.87,
-        "possibility": 1.08
+        "probability": 1.08
       },
-      "priority": 0.87,
-      "possibility": 1.08,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 9,
       "name": "Townhall.ninja",
       "businessValue": "Low",
       "visibility": "High",
       "size": 5,
-      "technologyStack": ["High Concurrency", "Socket", "AWS", "node", "Web", "Redis"],
-      "blacklist": ["high concurrency", "socket"],
+      "technologyStack": [
+        "High Concurrency",
+        "Socket",
+        "AWS",
+        "node",
+        "Web",
+        "Redis"
+      ],
+      "blacklist": [
+        "high concurrency",
+        "socket"
+      ],
       "deployment": "AWS",
       "type": "Tool",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
         "priority": 0.46,
-        "possibility": 0.87
+        "probability": 0.87
       },
-      "priority": 0.46,
-      "possibility": 0.87,
       "result": "h"
-    }, {
+    },
+    {
+      "id": 10,
       "name": "Damien Townhall video",
       "businessValue": "Low",
       "visibility": "High",
       "size": 5,
-      "technologyStack": ["iMovie"],
+      "technologyStack": [
+        "iMovie"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Tool",
-      "platform": ["ios"],
+      "platform": [
+        "ios"
+      ],
       "scores": {
         "priority": 0.51,
-        "possibility": 0.67
+        "probability": 0.67
       },
-      "priority": 0.51,
-      "possibility": 0.67,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 11,
       "name": "Tweet streaming",
       "businessValue": "Medium",
       "visibility": "Low",
       "size": 5,
-      "technologyStack": ["API", "node"],
+      "technologyStack": [
+        "API",
+        "node"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Tool",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
         "priority": 0.51,
-        "possibility": 0.82
+        "probability": 0.82
       },
-      "priority": 0.51,
-      "possibility": 0.82,
       "result": "h"
-    }, {
+    },
+    {
+      "id": 12,
       "name": "mTimer",
       "businessValue": "Low",
       "visibility": "High",
       "size": 5,
-      "technologyStack": ["Web", "node", "Design"],
+      "technologyStack": [
+        "Web",
+        "node",
+        "Design"
+      ],
       "blacklist": null,
       "deployment": "Heroku",
       "type": "Tool",
-      "platform": ["web"],
+      "platform": [
+        "web"
+      ],
       "scores": {
         "priority": 0.37,
-        "possibility": 0.96
+        "probability": 0.96
       },
-      "priority": 0.37,
-      "possibility": 0.96,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 13,
       "name": "QR-scanner(DL)",
       "businessValue": "High",
       "visibility": "High",
       "size": 3,
-      "technologyStack": ["iOS", "QR", "OCR"],
+      "technologyStack": [
+        "iOS",
+        "QR",
+        "OCR"
+      ],
       "blacklist": null,
       "deployment": "Heroku",
       "type": "Prototype",
-      "platform": ["ios"],
+      "platform": [
+        "ios"
+      ],
       "scores": {
         "priority": 0.95,
-        "possibility": 0.81
+        "probability": 0.81
       },
-      "priority": 0.95,
-      "possibility": 0.81,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 14,
       "name": "SonarQube",
       "businessValue": "High",
       "visibility": "Low",
       "size": 3,
-      "technologyStack": ["SonarQube"],
+      "technologyStack": [
+        "SonarQube"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "Tool",
-      "platform": ["devop"],
+      "platform": [
+        "devop"
+      ],
       "scores": {
         "priority": 0.75,
-        "possibility": 0.64
+        "probability": 0.64
       },
-      "priority": 0.75,
-      "possibility": 0.64,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 15,
       "name": "RoboDing",
       "businessValue": "Medium",
       "visibility": "Low",
       "size": 13,
-      "technologyStack": ["NFC", "Raspberry Pi", "iOS", "Web", "Notification"],
+      "technologyStack": [
+        "NFC",
+        "Raspberry Pi",
+        "iOS",
+        "Web",
+        "Notification"
+      ],
       "blacklist": null,
       "deployment": "AWS",
       "type": "Prototype",
-      "platform": ["ios", "web"],
+      "platform": [
+        "ios",
+        "web"
+      ],
       "scores": {
         "priority": 0.43,
-        "possibility": 0.95
+        "probability": 0.95
       },
-      "priority": 0.43,
-      "possibility": 0.95,
       "result": "s"
-    }, {
+    },
+    {
+      "id": 16,
       "name": "Wi-Fi indoor location",
       "businessValue": "High",
       "visibility": "Low",
       "size": 5,
-      "technologyStack": ["Raspberry Pi"],
-      "blacklist": ["raspberry pi"],
+      "technologyStack": [
+        "Raspberry Pi"
+      ],
+      "blacklist": [
+        "raspberry pi"
+      ],
       "deployment": null,
       "type": "POC",
-      "platform": ["rpi"],
+      "platform": [
+        "rpi"
+      ],
       "scores": {
         "priority": 0.61,
-        "possibility": 0.3
+        "probability": 0.3
       },
-      "priority": 0.61,
-      "possibility": 0.3,
       "result": "f"
-    }, {
+    },
+    {
+      "id": 17,
       "name": "Beacon-workspace check in/out",
       "businessValue": "High",
       "visibility": "Low",
       "size": 5,
-      "technologyStack": ["Raspberry Pi", "Beacon", "iOS"],
+      "technologyStack": [
+        "Raspberry Pi",
+        "Beacon",
+        "iOS"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["beacon"],
+      "platform": [
+        "beacon"
+      ],
       "scores": {
         "priority": 0.71,
-        "possibility": 0.3
+        "probability": 0.3
       },
-      "priority": 0.71,
-      "possibility": 0.3,
       "result": "h"
-    }, {
+    },
+    {
+      "id": 18,
       "name": "easyBI analysis",
       "businessValue": "Medium",
       "visibility": "Low",
       "size": 5,
-      "technologyStack": ["Jira"],
+      "technologyStack": [
+        "Jira"
+      ],
       "blacklist": null,
       "deployment": null,
       "type": "POC",
-      "platform": ["jira"],
+      "platform": [
+        "jira"
+      ],
       "scores": {
         "priority": 0.37,
-        "possibility": 0.96
+        "probability": 0.98
       },
-      "priority": 0.37,
-      "possibility": 0.96,
       "result": "h"
     }
-  ],
-  "techStack": [
-    "angular",
-    "arduino",
-    "photon",
-    "azure",
-    "azure cognitive api",
-    "raspberry pi",
-    "javascript",
-    "d3",
-    "data visulization",
-    "node",
-    "ios",
-    "NFC",
-    "web",
-    "ipc",
-    "skype 4 business",
-    "socket",
-    "aws",
-    "redis",
-    "ocr",
-    "sonarqube",
-    "notification",
-    "beacon",
-    "jira",
-    "jenkins",
-    "confluence",
-    "git",
-    "qr code",
-    "tvos",
-    "door sensor",
-    "high concurrency",
-    "api",
-    "design",
-    "imovie"
   ]
 }

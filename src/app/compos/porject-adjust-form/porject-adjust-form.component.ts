@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {IProject} from '../../interface';
-import { CalculatorService } from '../../services/projects.service';
+import { CalculatorService, ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-porject-adjust-form',
@@ -58,7 +58,7 @@ export class PorjectAdjustFormComponent implements OnInit {
     }
   ];
 
-  constructor(private cs: CalculatorService) {}
+  constructor(private cs: CalculatorService, private ps: ProjectsService) {}
 
   ngOnInit() {
     ({technologyStack: this.thistech} = this.project);
@@ -69,7 +69,7 @@ export class PorjectAdjustFormComponent implements OnInit {
       .forEach(t => {
         const i = this
           .techs
-          .indexOf(t.toLowerCase());
+          .indexOf(t);
         if (i !== -1) {
           this.selected[i] = true;
         }
@@ -77,7 +77,6 @@ export class PorjectAdjustFormComponent implements OnInit {
   }
 
   click(e, i) {
-
     const selectedChip = e.path[0].textContent;
     if (this.selected[i] === false) {
       this.thistech.push(selectedChip);
@@ -90,7 +89,7 @@ export class PorjectAdjustFormComponent implements OnInit {
   save() {
     this.project.technologyStack = this.thistech;
     const priority = this.cs.priorityCalculator(this.project);
-    const possibility = this.cs.possibilityCalculator(this.project);
+    const probability = this.cs.probabilityCalculator(this.project);
 
     this.cs.getPlatformWeights().subscribe(res => {
       let r = 0;
@@ -99,9 +98,12 @@ export class PorjectAdjustFormComponent implements OnInit {
       const z = +((r as number) / (sumValues as number) / 1.5).toFixed(2);
 
       this.project.scores.priority = +priority.toFixed(2);
-      this.project.scores.possibility = possibility + z;
+      this.project.scores.probability = probability + z;
 
-      console.log(`possibolity ${+possibility + z}  = ${+possibility} + ${z}`);
+      this.ps.updateProjectbyId(this.project).subscribe(
+        (response) => console.log(response)
+      );
+
     });
   }
 

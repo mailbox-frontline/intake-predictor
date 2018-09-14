@@ -6,7 +6,7 @@
       </mat-panel-title>
       <mat-panel-description class="description">
         <h4>Priority: {{project.scores.priority}}</h4>
-        <h4>Possibility: {{project.scores.possibility}}</h4>
+        <h4>probability: {{project.scores.probability}}</h4>
         <mat-chip-list class="result" *ngIf="project.result" [ngSwitch]="project.result">
           <mat-chip *ngSwitchCase="'s'" color="accent" selected>Success</mat-chip>
           <mat-chip *ngSwitchCase="'h'" color="primary" selected>Pending</mat-chip>
@@ -80,7 +80,7 @@
 
 
       <div class="right">
-        <h3>Tech Stack:</h3>
+        <h3>Tech Stack: ({{thistech.length}})</h3>
         <mat-chip-list [multiple]="true">
           <mat-chip *ngFor="let tech of techs; let i = index;" color="accent" class="techlist" [selectable]="true"
             [selected]="selected[i]" (click)="click($event, i)">{{tech}}</mat-chip>

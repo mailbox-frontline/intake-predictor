@@ -123,6 +123,20 @@ h1:first-of-type {
   border-radius: 0;
 }
 
+.float-chart{
+  width: 500px;
+  height: 365px;
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .results {
   flex-grow: 3;
 }
@@ -149,4 +163,12 @@ canvas {
 .waiting-list-title {
   width: 100%;
   justify-content: space-between;
+}
+
+.chart-buttons {
+  float: right;
+}
+
+.sort-buttons {
+  margin-bottom: 1rem;
 }
