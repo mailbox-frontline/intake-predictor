@@ -13,6 +13,7 @@ export class PorjectAdjustFormComponent implements OnInit {
   @Input() techs: string[];
   @Input() option1;
   @Input() option2;
+  @Input() option3;
   @Output() saveBtnClicked = new EventEmitter();
   thistech: string[] = [];
   selected: boolean[] = [];
@@ -94,6 +95,7 @@ export class PorjectAdjustFormComponent implements OnInit {
 
     this.cs.getPlatformWeights().subscribe(res => {
       let r = 0;
+      console.log(res);
       this.project.platform.forEach(p => r += res[p]);
       const sumValues = Object.values(res).reduce((x, y) => (x as number) + (y as number));
       const z = +((r as number) / (sumValues as number) / 1.5).toFixed(2);

@@ -18,6 +18,7 @@ export class NewComponent implements OnInit {
   formulas: IFormular[];
   option1: {} = {};
   option2: {} = {};
+  option3: {} = {};
 
   constructor(private actr: ActivatedRoute) {}
 
@@ -131,6 +132,8 @@ export class NewComponent implements OnInit {
     this.option1['options'] = this.formulas[0].formula[0].options.map(o => o.option);
     this.option2['name'] = this.formulas[0].formula[1].title;
     this.option2['options'] = this.formulas[0].formula[1].options.map(o => o.option);
+    this.option3['name'] = this.formulas[1].formula[0].title;
+    this.option3['options'] = this.formulas[1].formula[0].options.map(o => o.option);
   }
 
   getChartDataFromScores(projects: IScore[]) {

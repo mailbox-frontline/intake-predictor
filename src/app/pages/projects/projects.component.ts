@@ -25,7 +25,8 @@ import { ProjectsService } from '../../services/projects.service';
           [project]="project"
           [techs]="techs"
           [option1]="option1"
-          [option2]="option2">
+          [option2]="option2"
+          [option3]="option3">
       </app-porject-adjust-form>
     </div>
   `,
@@ -58,6 +59,7 @@ export class ProjectsComponent implements OnInit {
   formulas: IFormular[];
   option1: {} = {};
   option2: {} = {};
+  option3: {} = {};
   hasNewConfig = false;
   constructor(private actr: ActivatedRoute) {}
 
@@ -82,6 +84,8 @@ export class ProjectsComponent implements OnInit {
     this.option1['options'] = this.formulas[0].formula[0].options.map(o => o.option);
     this.option2['name'] = this.formulas[0].formula[1].title;
     this.option2['options'] = this.formulas[0].formula[1].options.map(o => o.option);
+    this.option3['name'] = this.formulas[1].formula[0].title;
+    this.option3['options'] = this.formulas[1].formula[0].options.map(o => o.option);
   }
 
   applyNewConfig() {

@@ -51,9 +51,9 @@
 
         <div class="check-box-outer">
           <div class="check-box">
-            <label>Project Type: </label>
+            <label>{{option3.name}}: </label>
             <mat-radio-group class="radio-group" [(ngModel)]="project.type">
-              <mat-radio-button class="radio-margin" *ngFor="let type of types" [value]="type">
+              <mat-radio-button class="radio-margin" *ngFor="let type of option3.options" [value]="type">
                 {{type}}
               </mat-radio-button>
             </mat-radio-group>
