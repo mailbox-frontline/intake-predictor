@@ -20,6 +20,12 @@ export class ProjectsService {
     return this.http.get < IFormular[] > (this.BASE_URL + '/formulas').pipe(retry(2), catchError(this.handleError));
   }
 
+  updateFomularById(formula: IFormular) {
+    return this.http.put<IFormular>(this.BASE_URL + '/formulas/' + formula.id, formula).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   updateProjectbyId(project: IProject): Observable<IProject> {
     return this.http.put<IProject>(this.BASE_URL + '/projects/' + project.id, project).pipe(
       map(response => ProjectMaker.create(response),

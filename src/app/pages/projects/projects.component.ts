@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { IProject, IFormular } from '../../interface';
+import { ProjectsService } from '../../services/projects.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { IProject, IFormular } from '../../interface';
       <app-config [formulas]="formulas" (newFormulas)="onNewFormulas($event)"></app-config>
       <div class="config-title">
         <h2>Total {{projects.length}} Projects</h2>
-        <button mat-stroked-button color="warn">
+        <button mat-stroked-button color="warn" *ngIf="hasNewConfig" (click)="applyNewConfig()">
             <mat-icon>autorenew</mat-icon>
             Apply New Config
         </button>
@@ -23,7 +24,8 @@ import { IProject, IFormular } from '../../interface';
       <app-porject-adjust-form *ngFor="let project of projects"
           [project]="project"
           [techs]="techs"
-          [option1]="option1">
+          [option1]="option1"
+          [option2]="option2">
       </app-porject-adjust-form>
     </div>
   `,
@@ -55,6 +57,8 @@ export class ProjectsComponent implements OnInit {
   techs: string[] = [];
   formulas: IFormular[];
   option1: {} = {};
+  option2: {} = {};
+  hasNewConfig = false;
   constructor(private actr: ActivatedRoute) {}
 
   ngOnInit() {
@@ -68,6 +72,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   onNewFormulas(event) {
+    this.hasNewConfig = true;
     this.formulas = event;
     this.updateOptions();
   }
@@ -75,5 +80,11 @@ export class ProjectsComponent implements OnInit {
   updateOptions() {
     this.option1['name'] = this.formulas[0].formula[0].title;
     this.option1['options'] = this.formulas[0].formula[0].options.map(o => o.option);
+    this.option2['name'] = this.formulas[0].formula[1].title;
+    this.option2['options'] = this.formulas[0].formula[1].options.map(o => o.option);
+  }
+
+  applyNewConfig() {
+    this.hasNewConfig = false;
   }
 }

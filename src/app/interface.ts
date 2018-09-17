@@ -22,6 +22,7 @@ export interface IScore {
 }
 
 export interface IFormular {
+  id: number;
   name: string;
   updateDate: number | string;
   formula: IConfig[];

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IFormular } from '../../interface';
+import { ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-config',
@@ -11,7 +12,7 @@ export class ConfigComponent implements OnInit {
   @Input() formulas: IFormular[];
   @Output() newFormulas: EventEmitter<IFormular[]> = new EventEmitter<IFormular[]>();
 
-  constructor() { }
+  constructor(private ps: ProjectsService) { }
 
   ngOnInit() {
   }
@@ -19,11 +20,17 @@ export class ConfigComponent implements OnInit {
   onConfigSaved(event) {
 
     if (event.name === this.formulas[0].name) {
-      this.formulas[0] = event;
-      console.log(this.formulas[0]);
+
+      this.ps.updateFomularById(this.formulas[0]).subscribe(
+        (res) => this.formulas[0] = res
+      );
+      console.log('called update by ID...');
+
     } else {
-      this.formulas[1] = event;
-      console.log(this.formulas[1]);
+      this.ps.updateFomularById(this.formulas[1]).subscribe(
+        (res) => this.formulas[1] = res
+      );
+      console.log('called update by ID...');
     }
 
     // call save config API

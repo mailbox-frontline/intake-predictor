@@ -12,12 +12,12 @@ export class PorjectAdjustFormComponent implements OnInit {
   @Input() project: IProject;
   @Input() techs: string[];
   @Input() option1;
+  @Input() option2;
   @Output() saveBtnClicked = new EventEmitter();
   thistech: string[] = [];
   selected: boolean[] = [];
 
   types: string[] = ['POC', 'Tool', 'Prototype'];
-  visibility: string[] = ['Low', 'Medium', 'High'];
   deployment: string[] = ['AWS', 'Azure', 'Heroku', 'Other'];
   platform = [
     {

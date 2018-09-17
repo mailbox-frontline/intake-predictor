@@ -40,6 +40,7 @@ const appRoutes: Routes = [
       techs: TechStackResolver,
       scores: ScoreResolver,
       allProjectNames: ProjectNameResolver,
+      formulas: AllFormulasResolver,
     }
   }
 ];

@@ -1,7 +1,7 @@
 import {Component, OnInit, HostListener} from '@angular/core';
 import {Chart} from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
-import { IProject, IScore } from '../../interface';
+import { IProject, IScore, IFormular } from '../../interface';
 
 @Component({selector: 'app-new', templateUrl: './new.component.html', styleUrls: ['./new.component.css']})
 export class NewComponent implements OnInit {
@@ -15,16 +15,23 @@ export class NewComponent implements OnInit {
   waitingProjects: IProject[];
   techs: string[] = [];
   score: IScore[];
+  formulas: IFormular[];
+  option1: {} = {};
+  option2: {} = {};
+
   constructor(private actr: ActivatedRoute) {}
 
   ngOnInit() {
 
+    this.formulas = this.actr.snapshot.data.formulas || [];
     this.waitingProjects = this.actr.snapshot.data.waitingProjects || [];
     this.names = this.actr.snapshot.data.allProjectNames || [];
     this.techs = this.actr.snapshot.data.techs || [];
     this.score = this.actr.snapshot.data.scores || [];
+
     this.s = this.getChartDataFromScores(this.score);
     this.q = this.getChartDataFromProject(this.waitingProjects);
+
 
     this.chart = new Chart('canvas', {
       type: 'scatter',
@@ -103,26 +110,35 @@ export class NewComponent implements OnInit {
       }
     });
 
+    this.updateOptions();
+
   }
 
   getChartDataFromProject(projects: IProject[]) {
     const all = [];
-    projects.forEach(s => {
+    projects.forEach(p => {
       const a = {};
-      a['y'] = (s.scores.priority + 0.1).toFixed(2);
-      a['x'] = (s.scores.probability - 0.1).toFixed(2);
+      a['y'] = (p.scores.priority + 0.1).toFixed(2);
+      a['x'] = (p.scores.probability - 0.1).toFixed(2);
       all.push(a);
     });
 
     return all;
   }
 
+  updateOptions() {
+    this.option1['name'] = this.formulas[0].formula[0].title;
+    this.option1['options'] = this.formulas[0].formula[0].options.map(o => o.option);
+    this.option2['name'] = this.formulas[0].formula[1].title;
+    this.option2['options'] = this.formulas[0].formula[1].options.map(o => o.option);
+  }
+
   getChartDataFromScores(projects: IScore[]) {
     const all = [];
-    projects.forEach(s => {
+    projects.forEach(p => {
       const a = {};
-      a['y'] = s.priority;
-      a['x'] = s.probability;
+      a['y'] = p.priority;
+      a['x'] = p.probability;
       all.push(a);
     });
 

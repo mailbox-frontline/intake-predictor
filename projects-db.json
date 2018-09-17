@@ -17,7 +17,7 @@
       ],
       "scores": {
         "priority": 0.47,
-        "probability": 0.81
+        "probability": 0.76
       },
       "result": "s"
     },
@@ -428,8 +428,9 @@
   ],
   "formulas": [
     {
+      "id": 1,
       "name": "Priority Formula",
-      "updateDate": "Sept 10, 2018",
+      "updateDate": 1537197549790,
       "formula": [
         {
           "title": "Business Value",
@@ -438,127 +439,153 @@
             {
               "option": "Low",
               "oWeight": 0.2
-            }, {
+            },
+            {
               "option": "Medium",
               "oWeight": 0.6
-            }, {
+            },
+            {
               "option": "High",
               "oWeight": 1
             }
           ]
-        }, {
+        },
+        {
           "title": "Visibility",
           "weight": 0.25,
           "options": [
             {
               "option": "Low",
               "oWeight": 0.2
-            }, {
+            },
+            {
               "option": "Medium",
               "oWeight": 0.6
-            }, {
+            },
+            {
               "option": "High",
               "oWeight": 1
             }
           ]
-        }, {
+        },
+        {
           "title": "Size",
           "weight": 0.2,
           "options": [
             {
               "option": "less than 1 week",
               "oWeight": 1
-            }, {
+            },
+            {
               "option": "2-3 weeks",
               "oWeight": 0.8
-            }, {
+            },
+            {
               "option": "4-5 week",
               "oWeight": 0.6
-            }, {
+            },
+            {
               "option": "6-8 week",
               "oWeight": 0.4
             }
           ]
-        }, {
+        },
+        {
           "title": "Tech",
           "weight": 0.2,
           "options": [
             {
               "option": ">3",
               "oWeight": 0.5
-            }, {
+            },
+            {
               "option": ">5",
               "oWeight": 0.75
-            }, {
+            },
+            {
               "option": ">7",
               "oWeight": 1
             }
           ]
         }
       ]
-    }, {
+    },
+    {
+      "id": 2,
       "name": "Probobility Formula",
       "updateDate": "Sept 12, 2018",
       "formula": [
         {
-          "title": "Business Value",
-          "weight": 0.5,
+          "title": "Project Type",
+          "weight": 0.4,
           "options": [
             {
-              "option": "Low",
-              "oWeight": 0.2
-            }, {
-              "option": "Medium",
-              "oWeight": 0.6
-            }, {
-              "option": "High",
+              "option": "POC",
+              "oWeight": 0.5
+            },
+            {
+              "option": "Tool",
+              "oWeight": 0.8
+            },
+            {
+              "option": "Prototype",
               "oWeight": 1
             }
           ]
-        }, {
+        },
+        {
           "title": "Visibility",
           "weight": 0.25,
           "options": [
             {
               "option": "Low",
               "oWeight": 0.2
-            }, {
+            },
+            {
               "option": "Medium",
               "oWeight": 0.6
-            }, {
+            },
+            {
               "option": "High",
               "oWeight": 1
             }
           ]
-        }, {
+        },
+        {
           "title": "Size",
           "weight": 0.2,
           "options": [
             {
               "option": "less than 1 week",
               "oWeight": 1
-            }, {
+            },
+            {
               "option": "2-3 weeks",
               "oWeight": 0.8
-            }, {
+            },
+            {
               "option": "4-5 week",
               "oWeight": 0.6
-            }, {
+            },
+            {
               "option": "6-8 week",
               "oWeight": 0.4
             }
           ]
-        }, {
+        },
+        {
           "title": "Tech",
           "weight": 0.2,
           "options": [
             {
               "option": ">3",
               "oWeight": 0.5
-            }, {
+            },
+            {
               "option": ">5",
               "oWeight": 0.75
-            }, {
+            },
+            {
               "option": ">7",
               "oWeight": 1
             }

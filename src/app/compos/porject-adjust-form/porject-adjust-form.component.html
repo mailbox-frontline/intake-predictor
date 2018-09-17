@@ -68,9 +68,9 @@
           </div>
 
           <div class="check-box">
-            <label>Visibility: </label>
+            <label>{{option2.name}}: </label>
             <mat-radio-group class="radio-group" [(ngModel)]="project.visibility">
-              <mat-radio-button class="radio-margin" *ngFor="let v of visibility" [value]="v">
+              <mat-radio-button class="radio-margin" *ngFor="let v of option2.options" [value]="v">
                 {{v}}
               </mat-radio-button>
             </mat-radio-group>
