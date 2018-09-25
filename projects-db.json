@@ -2,6 +2,8 @@
   "projects": [
     {
       "id": 1,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Angular Training",
       "businessValue": "Low",
       "visibility": "High",
@@ -13,7 +15,7 @@
       "deployment": null,
       "type": "Tool",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.47,
@@ -23,6 +25,8 @@
     },
     {
       "id": 2,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Biometrics Phase 1",
       "businessValue": "Low",
       "visibility": "Low",
@@ -39,7 +43,7 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.42,
@@ -49,6 +53,8 @@
     },
     {
       "id": 3,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Biometrics Phase 2",
       "businessValue": "Low",
       "visibility": "Low",
@@ -65,7 +71,7 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.42,
@@ -75,6 +81,8 @@
     },
     {
       "id": 4,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Biometrics Phase 3",
       "businessValue": "High",
       "visibility": "High",
@@ -91,10 +99,10 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "web",
-        "rpi",
-        "jira",
-        "arduino"
+        "Web",
+        "Respberry Pi",
+        "Jira",
+        "Arduino"
       ],
       "scores": {
         "priority": 0.98,
@@ -104,6 +112,8 @@
     },
     {
       "id": 5,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Card Tap",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -116,7 +126,7 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "arduino"
+        "Arduino"
       ],
       "scores": {
         "priority": 0.55,
@@ -126,7 +136,9 @@
     },
     {
       "id": 6,
-      "name": "Monarch Phase 1 - web",
+      "startDate": 1537197549790,
+      "completeDate": null,
+      "name": "Monarch Phase 1 - Web",
       "businessValue": "High",
       "visibility": "Medium",
       "size": 13,
@@ -139,7 +151,7 @@
       "deployment": "Azure",
       "type": "Prototype",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.83,
@@ -149,6 +161,8 @@
     },
     {
       "id": 7,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Monarch Phase 2 - iOS",
       "businessValue": "High",
       "visibility": "Medium",
@@ -161,7 +175,7 @@
       "deployment": null,
       "type": "Prototype",
       "platform": [
-        "ios"
+        "iOS"
       ],
       "scores": {
         "priority": 0.73,
@@ -171,6 +185,8 @@
     },
     {
       "id": 8,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Monarch Phase 3 - flooeplan",
       "businessValue": "High",
       "visibility": "Medium",
@@ -185,7 +201,7 @@
       "deployment": null,
       "type": "Prototype",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.87,
@@ -195,6 +211,8 @@
     },
     {
       "id": 9,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Townhall.ninja",
       "businessValue": "Low",
       "visibility": "High",
@@ -214,7 +232,7 @@
       "deployment": "AWS",
       "type": "Tool",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.46,
@@ -224,6 +242,8 @@
     },
     {
       "id": 10,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Damien Townhall video",
       "businessValue": "Low",
       "visibility": "High",
@@ -235,7 +255,7 @@
       "deployment": null,
       "type": "Tool",
       "platform": [
-        "ios"
+        "iOS"
       ],
       "scores": {
         "priority": 0.51,
@@ -245,6 +265,8 @@
     },
     {
       "id": 11,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Tweet streaming",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -257,7 +279,7 @@
       "deployment": null,
       "type": "Tool",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.51,
@@ -267,6 +289,8 @@
     },
     {
       "id": 12,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "mTimer",
       "businessValue": "Low",
       "visibility": "High",
@@ -280,7 +304,7 @@
       "deployment": "Heroku",
       "type": "Tool",
       "platform": [
-        "web"
+        "Web"
       ],
       "scores": {
         "priority": 0.37,
@@ -290,6 +314,8 @@
     },
     {
       "id": 13,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "QR-scanner(DL)",
       "businessValue": "High",
       "visibility": "High",
@@ -303,7 +329,7 @@
       "deployment": "Heroku",
       "type": "Prototype",
       "platform": [
-        "ios"
+        "iOS"
       ],
       "scores": {
         "priority": 0.95,
@@ -313,6 +339,8 @@
     },
     {
       "id": 14,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "SonarQube",
       "businessValue": "High",
       "visibility": "Low",
@@ -324,7 +352,7 @@
       "deployment": null,
       "type": "Tool",
       "platform": [
-        "devop"
+        "Dev-Op"
       ],
       "scores": {
         "priority": 0.75,
@@ -334,6 +362,8 @@
     },
     {
       "id": 15,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "RoboDing",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -349,8 +379,8 @@
       "deployment": "AWS",
       "type": "Prototype",
       "platform": [
-        "ios",
-        "web"
+        "iOS",
+        "Web"
       ],
       "scores": {
         "priority": 0.43,
@@ -360,6 +390,8 @@
     },
     {
       "id": 16,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Wi-Fi indoor location",
       "businessValue": "High",
       "visibility": "Low",
@@ -373,7 +405,7 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "rpi"
+        "Respberry Pi"
       ],
       "scores": {
         "priority": 0.61,
@@ -383,6 +415,8 @@
     },
     {
       "id": 17,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "Beacon-workspace check in/out",
       "businessValue": "High",
       "visibility": "Low",
@@ -396,7 +430,7 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "beacon"
+        "Beacon"
       ],
       "scores": {
         "priority": 0.71,
@@ -406,6 +440,8 @@
     },
     {
       "id": 18,
+      "startDate": 1537197549790,
+      "completeDate": null,
       "name": "easyBI analysis",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -417,13 +453,43 @@
       "deployment": null,
       "type": "POC",
       "platform": [
-        "jira"
+        "Jira"
       ],
       "scores": {
         "priority": 0.37,
         "probability": 0.98
       },
       "result": "h"
+    }
+  ],
+  "waitinglist": [],
+  "currentprojects": [
+    {
+      "id": "fb67f860-6566-af22-818e-21184fbddb03",
+      "startDate": 1537899262086,
+      "completeDate": null,
+      "name": "test1",
+      "businessValue": "Medium",
+      "visibility": "Medium",
+      "size": 3,
+      "technologyStack": [
+        "NFC",
+        "AWS",
+        "Notification",
+        "Socket"
+      ],
+      "blacklist": null,
+      "deployment": null,
+      "type": "POC",
+      "platform": [
+        "Respberry Pi",
+        "Web"
+      ],
+      "scores": {
+        "priority": 0.75,
+        "probability": 0.8
+      },
+      "result": null
     }
   ],
   "formulas": [

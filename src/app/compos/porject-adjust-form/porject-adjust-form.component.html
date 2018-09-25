@@ -7,11 +7,23 @@
       <mat-panel-description class="description">
         <h4>Priority: {{project.scores.priority | number : '1.2-2'}}</h4>
         <h4>Probability: {{project.scores.probability | number : '1.2-2'}}</h4>
+        
         <mat-chip-list class="result" *ngIf="project.result" [ngSwitch]="project.result">
           <mat-chip *ngSwitchCase="'s'" color="accent" selected>Success</mat-chip>
           <mat-chip *ngSwitchCase="'h'" color="primary" selected>Pending</mat-chip>
           <mat-chip *ngSwitchCase="'f'" >Failure</mat-chip>
         </mat-chip-list>
+
+        <div *ngIf="!project.result && !project.startDate" class="result">
+            <button mat-button (click)="removeFromWaitingList($event)">Remove</button>&nbsp;
+            <button mat-stroked-button color="warn" (click)="addToCurrentList($event)">Start</button>
+        </div>
+
+        <div *ngIf="!project.result && project.startDate" class="result">
+            <button mat-button>From: {{project.startDate | date:'mediumDate'}}</button>&nbsp;
+            <button mat-stroked-button color="warn"(click)="move2ProjectList($event)">Done</button>
+        </div>
+
       </mat-panel-description>
     </mat-expansion-panel-header>
 
@@ -27,11 +39,9 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Start Date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <input matInput type="text" placeholder="Start Date" value="{{project.startDate | date:'mediumDate'}}" disabled>
         </mat-form-field>
-
+ 
         <mat-form-field>
           <mat-select placeholder="Size" [(ngModel)]="project.size">
             <mat-option *ngFor="let s of size" [value]="s.value">

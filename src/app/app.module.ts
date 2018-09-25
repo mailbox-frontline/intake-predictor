@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 // tslint:disable-next-line:max-line-length
-import { AllProjectsResolver, TechStackResolver, ScoreResolver, ProjectNameResolver, WaitingProjectsResolver, AllFormulasResolver } from './resolvers/projects.resolver';
+import { AllProjectsResolver, Top5ProjectsResolver, TechStackResolver, ScoreResolver, ProjectNameResolver, WaitingProjectsResolver, AllFormulasResolver, WaitinglistResolver, CurrentProjectsResolver } from './resolvers/projects.resolver';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MaterialModule} from './material.module';
@@ -28,19 +28,20 @@ const appRoutes: Routes = [
     path: 'projects',
     component: ProjectsComponent,
     resolve: {
-      projects: AllProjectsResolver,
+      top5Projects: Top5ProjectsResolver,
       techs: TechStackResolver,
       formulas: AllFormulasResolver,
+      currentProjects: CurrentProjectsResolver,
     }
   }, {
     path: 'new',
     component: NewComponent,
     resolve: {
-      waitingProjects: WaitingProjectsResolver,
       techs: TechStackResolver,
       scores: ScoreResolver,
       allProjectNames: ProjectNameResolver,
       formulas: AllFormulasResolver,
+      watinglist: WaitinglistResolver,
     }
   }
 ];
@@ -63,6 +64,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

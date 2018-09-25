@@ -6,14 +6,113 @@
         <h3>New Project</h3>
       </mat-card-header>
       <mat-card-content>
-        <p>
+        <p *ngIf="!showConversation">
           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
           A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
           bred for hunting.
         </p>
+        <div *ngIf="showConversation" class="all-QAs">
+          <div *ngIf="qas">
+            <div *ngFor="let qa of qas; let idx = index">
+              <div class="current-question-wrapper">
+                <div class="avatar1"></div>
+                <h4 class="qas-common qas-q">
+                  {{qa.question}}
+                </h4>
+              </div>
+              <div class="current-question-wrapper">
+
+                <h4 class="qas-common qas-a" (click)="onAnswerClicked(idx)">
+                  {{qa.a}}
+                </h4>
+                <div class="avatar2"></div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="currentQuestion" class="current-question">
+            <div class="current-question-wrapper">
+              <div class="avatar1"></div>
+              <h4 class="qas-common qas-q">{{currentQuestion.question}}</h4>
+            </div>
+            <div class="current-question-wrapper">
+
+              <div *ngIf="!currentAnswerSaved" class="qas-common qas-a thinking">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+              <div class="avatar2"></div>
+            </div>
+          </div>
+          <ng-container *ngIf="currentQuestion">
+            <div *ngIf="!editingPreAnswer"  class="answer-area" [ngSwitch]="currentQuestion.optionType">
+              <div *ngSwitchCase="'input'">
+                <input type="text" [(ngModel)]="currentAnswer" placeholder="{{inputPlaceholder}}" autofocus>
+              </div>
+              <div *ngSwitchCase="'radio'">
+                <mat-radio-group [(ngModel)]="currentAnswer" class="option-row">
+                  <mat-radio-button class="example-radio-button" *ngFor="let option of currentQuestion.options" [value]="option">
+                    {{option}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div *ngSwitchCase="'platform'">
+                <mat-chip-list [multiple]="true">
+                  <mat-chip *ngFor="let option of currentQuestion.options; let i = index;" color="accent" class="techlist"
+                    [selectable]="true" [selected]="selectedP[i]" (click)="selectPlatform($event, i)">{{option}}</mat-chip>
+                </mat-chip-list>
+              </div>
+              <div *ngSwitchCase="'techs'">
+                  <mat-chip-list [multiple]="true" class="option-chips">
+                    <mat-chip *ngFor="let option of currentQuestion.options; let i = index;" color="accent" class="techlist"
+                      [selectable]="true" [selected]="selectedt[i]" (click)="selectTechs($event, i)">{{option}}</mat-chip>
+                  </mat-chip-list>
+                </div>
+            </div>
+
+            <div *ngIf="editingPreAnswer"  class="answer-area-edit" [ngSwitch]="editingQuestion.optionType">
+                <div *ngSwitchCase="'input'">
+                  <input type="text" [(ngModel)]="editingAnswers" placeholder="{{inputPlaceholder}}" autofocus>
+                </div>
+                <div *ngSwitchCase="'radio'">
+                  <mat-radio-group [(ngModel)]="editingAnswers" class="option-row">
+                    <mat-radio-button class="example-radio-button" *ngFor="let option of editingQuestion.options" [value]="option">
+                      {{option}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div *ngSwitchCase="'platform'">
+                  <mat-chip-list [multiple]="true">
+                    <mat-chip *ngFor="let option of editingQuestion.options; let i = index;" color="accent" class="techlist"
+                      [selectable]="true" [selected]="selectedP[i]" (click)="editPlatform($event, i)">{{option}}</mat-chip>
+                  </mat-chip-list>
+                </div>
+                <div *ngSwitchCase="'techs'" class="option-chips">
+                    <mat-chip-list [multiple]="true">
+                      <mat-chip *ngFor="let option of editingQuestion.options; let i = index;" color="accent" class="techlist"
+                        [selectable]="true" [selected]="selectedt[i]" (click)="editTechs($event, i)">{{option}}</mat-chip>
+                    </mat-chip-list>
+                  </div>
+              </div>
+
+          </ng-container >
+
+
+          <div class="error-msg">
+              <mat-error *ngIf="hasError" class="mat-error">This is <strong>required</strong></mat-error>
+          </div>
+        </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>Start A New Project</button>
+        <button *ngIf="!showConversation" mat-flat-button (click)="startNewProject()">
+          Start A New Project
+        </button>
+        <div *ngIf="showConversation && currentQuestion">
+          <button *ngIf="!editingPreAnswer"  mat-flat-button (click)="saveAnswer()">Save</button>
+          <button *ngIf="editingPreAnswer"  mat-stroked-button color="primary" (click)="saveEdit()">Save Change</button>
+        </div>
+        <button *ngIf="showConversation && !currentQuestion" mat-flat-button (click)="addNewProject()">GO</button>
+
       </mat-card-actions>
     </mat-card>
   </div>
@@ -23,21 +122,27 @@
     <div class="right-top">
       <div class="scores">
 
-        <mat-card class="scores-card">
+        <mat-card *ngIf="newProject" class="scores-card" >
           <mat-card-header>
             <div mat-card-avatar id="scr"></div>
             <h3>Scores</h3>
           </mat-card-header>
           <mat-card-content>
             <div class="predictions">
-              <h1>Success</h1>
-              <h1>40%</h1>
+              <div class="scores-box">
+                <p>Priority</p>
+                <h1 class="divider">{{newProject.scores.priority | number : '1.2-2'}}</h1>
+              </div>
+              <div class="scores-box">
+                  <p>Probability</p>
+                  <h1>{{newProject.scores.probability | number : '1.2-2'}}</h1>
+              </div>
             </div>
           </mat-card-content>
         </mat-card>
-        <!-- <mat-card class="scores-card">
+        <mat-card *ngIf="!newProject" class="scores-card" >
           <div mat-card-avatar id="logo"></div>
-        </mat-card> -->
+        </mat-card>
 
 
         <mat-card class="scores-card color">
@@ -46,12 +151,11 @@
               <h2><span>P</span>roject<br>
                 <span>P</span>rediction<br>
                 <span>T</span>ool</h2>
-              <!-- <h4>◆MENU◆</h4> -->
-              <a mat-button [routerLink]="['/projects']" >◆ see all projects ◆</a>
+              <a mat-button [routerLink]="['/projects']">◆ see all projects ◆</a>
             </div>
           </mat-card-content>
         </mat-card>
-      
+
       </div>
       <div [className]="isFloat ? 'float-chart' : 'results'">
         <mat-card class="card">
@@ -64,9 +168,9 @@
               <canvas id="canvas">{{ chart }}</canvas>
             </div>
           </mat-card-content>
-          <mat-card-actions class="chart-buttons" *ngIf="!isFloat">
-            <button mat-button>discard</button>
-            <button mat-stroked-button color="primary">+ add to waiting list</button>
+          <mat-card-actions class="chart-buttons" *ngIf="!isFloat && hasNewProject">
+            <button mat-button (click)="removeNewFromChart()">discard</button>
+            <button mat-stroked-button color="primary" (click)="addNewToWaitingList()">+ add to waiting list</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -77,46 +181,43 @@
 
 
 
-      
-      <mat-card class="card" *ngIf="waitingProjects">
+
+      <mat-card class="card">
         <mat-card-header>
           <div mat-card-avatar id="wl"></div>
           <div class="waiting-list-title">
             <h3>Waiting List</h3>
-            <h4>Total {{waitingProjects.length}} Projects</h4>
+            <h4 *ngIf="!hasNewProject">Total {{waitingProjects.length}} {{waitingProjects.length > 1 ? 'Projects' :
+              'Project'}}</h4>
           </div>
         </mat-card-header>
 
-        <div class="sort-buttons">
+        <div class="sort-buttons" *ngIf="waitingProjects.length">
           <mat-button-toggle-group>
             <mat-button-toggle value="priority" (change)="onValChange($event.value)">
-                Sort by Priority
+              Sort by Priority
             </mat-button-toggle>
             <mat-button-toggle value="probability" (change)="onValChange($event.value)">
-                Probability
+              Probability
             </mat-button-toggle>
           </mat-button-toggle-group>
         </div>
-        
 
 
 
-        <mat-card-content>
-          <app-porject-adjust-form *ngFor="let project of waitingProjects; let i = index" 
-                                  [project]="project"
-                                  (mouseenter)="onMouseEnter(i)" 
-                                  (mouseleave)="onMouseLeave(i)" 
-                                  (saveBtnClicked)="updateTheChart()"
-                                  [techs]="techs"
-                                  [option1]="option1"
-                                  [option2]="option2"
-                                  [option3]="option3"
-                                  >
+
+        <mat-card-content *ngIf="waitingProjects.length">
+          <app-porject-adjust-form *ngFor="let project of waitingProjects; let i = index" [project]="project"
+            (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave(i)" (saveBtnClicked)="updateTheChart()" [techs]="techs"
+            [option1]="option1" [option2]="option2" [option3]="option3" (remove)="removeProjectFromWaiting($event)"
+            (add2Current)="add2CurrentList($event)">
           </app-porject-adjust-form>
         </mat-card-content>
+
+        <mat-accordion *ngIf="!waitingProjects.length">
+          <h3>Let's get some projects...</h3>
+        </mat-accordion>
       </mat-card>
     </div>
   </div>
 </div>
-
-

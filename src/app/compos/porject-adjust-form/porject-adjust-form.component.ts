@@ -15,32 +15,34 @@ export class PorjectAdjustFormComponent implements OnInit {
   @Input() option2;
   @Input() option3;
   @Output() saveBtnClicked = new EventEmitter();
+  @Output() remove = new EventEmitter();
+  @Output() add2Current = new EventEmitter();
+  @Output() add2ProjectList = new EventEmitter();
   thistech: string[] = [];
   selected: boolean[] = [];
 
-  types: string[] = ['POC', 'Tool', 'Prototype'];
   deployment: string[] = ['AWS', 'Azure', 'Heroku', 'Other'];
   platform = [
     {
-      value: 'web',
+      value: 'Web',
       viewValue: 'Web'
     }, {
-      value: 'ios',
+      value: 'iOS',
       viewValue: 'iOS'
     }, {
-      value: 'rpi',
+      value: 'Raspberry Pi',
       viewValue: 'Raspberry Pi'
     }, {
-      value: 'jira',
+      value: 'Jira',
       viewValue: 'Jira'
     }, {
-      value: 'arduino',
+      value: 'Arduino',
       viewValue: 'Arduino'
     }, {
-      value: 'devop',
+      value: 'Dev-Op',
       viewValue: 'Dev-Op'
     }, {
-      value: 'beacon',
+      value: 'Beacon',
       viewValue: 'Beacon'
     }
   ];
@@ -95,7 +97,6 @@ export class PorjectAdjustFormComponent implements OnInit {
 
     this.cs.getPlatformWeights().subscribe(res => {
       let r = 0;
-      console.log(res);
       this.project.platform.forEach(p => r += res[p]);
       const sumValues = Object.values(res).reduce((x, y) => (x as number) + (y as number));
       const z = +((r as number) / (sumValues as number) / 1.5).toFixed(2);
@@ -110,6 +111,21 @@ export class PorjectAdjustFormComponent implements OnInit {
       this.saveBtnClicked.emit('saved');
 
     });
+  }
+
+  removeFromWaitingList(e) {
+    e.stopPropagation();
+    this.remove.emit(this.project);
+  }
+
+  addToCurrentList(e) {
+    e.stopPropagation();
+    this.add2Current.emit(this.project);
+  }
+
+  move2ProjectList(e) {
+    e.stopPropagation();
+    this.add2ProjectList.emit(this.project);
   }
 
 }

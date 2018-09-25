@@ -23,6 +23,33 @@ export class AllProjectsResolver implements Resolve<IProject[]> {
 @Injectable({
   providedIn: 'root'
 })
+export class Top5ProjectsResolver implements Resolve<IProject[]> {
+
+  constructor(private ps: ProjectsService) { }
+
+  resolve(): Observable<IProject[]> {
+    return this.ps.getAllProjects().pipe(
+      map(projects => projects.slice(0, 5))
+    );
+  }
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class CurrentProjectsResolver implements Resolve<IProject[]> {
+
+  constructor(private ps: ProjectsService) { }
+
+  resolve(): Observable<IProject[]> {
+    return this.ps.getAllCurrentProjects();
+  }
+}
+
+
+
+@Injectable({
+  providedIn: 'root'
+})
 export class TechStackResolver implements Resolve<string[]> {
 
   constructor(private ps: ProjectsService) { }
@@ -88,6 +115,18 @@ export class AllFormulasResolver implements Resolve<IFormular[]> {
 
   resolve(): Observable<IFormular[]> {
     return this.ps.getAllFormulas();
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WaitinglistResolver implements Resolve<IProject[]> {
+
+  constructor(private ps: ProjectsService) { }
+
+  resolve(): Observable<IProject[]> {
+    return this.ps.getWaitinglist();
   }
 }
 

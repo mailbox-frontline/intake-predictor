@@ -10,11 +10,125 @@
   display: flex;
 }
 
-.predictions {
-  padding-top: 2rem;
+.error-msg{
+  margin-top: 10px;
 }
 
-.color{
+.current-question-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.avatar1 {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EBEBEB;
+}
+
+.avatar2 {
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FABE66
+}
+
+.thinking {
+  margin: 0 0 0 auto;
+}
+
+.thinking>div {
+  width: 8px;
+  height: 8px;
+  background-color: #FABE66;
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.thinking .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.thinking .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0)
+  }
+
+  40% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bouncedelay {
+
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.qas-common {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: max-content;
+  padding: 10px 20px;
+}
+
+.qas-q {
+  border: 1px solid #333333;
+  border-radius: 0 30px 30px 30px;
+}
+
+.qas-a {
+  cursor: pointer;
+  margin: 0 0 0 auto;
+  border: 1px solid #FABE66;
+  color: #333333;
+  border-radius: 30px 30px 0 30px;
+}
+
+.answer-area{
+  margin-top: 5px;
+}
+
+.answer-area-edit{
+  margin-top: 5px;
+  background-color: #fbbf5e;
+}
+
+.predictions {
+  display: flex;
+  padding-top: 2rem;
+  justify-content: space-between;
+}
+
+.scores-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.scores-box p {
+  text-align: center;
+}
+
+.color {
   background-color: floralwhite;
 }
 
@@ -23,7 +137,7 @@
   font-size: 1rem;
 }
 
-.name{
+.name {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,18 +153,18 @@
   padding-right: 20px;
 }
 
-h3{
+h3 {
   font-family: "Montserrat", sans-serif;
 }
 
-.name >h4 {
+.name>h4 {
   font-family: "Montserrat", sans-serif;
   margin: 0px;
   font-weight: 500;
   letter-spacing: 10px;
 }
 
-.name >h2 >span {
+.name>h2>span {
   color: #f21d1d;
 }
 
@@ -78,7 +192,31 @@ h1 {
   padding-right: 20px;
 }
 
-h1:first-of-type {
+.option-chips {
+  margin-top: 30px;
+}
+
+.mat-error{
+  margin: 10px 5px;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+input {
+  margin-top: 30px;
+  padding: 6px 20px;
+  height: 30px;
+  width: 90%;
+  border-radius: 20px 20px 0 20px;
+  border: 1px solid #fbbf5e;
+  font-size: 16px;
+}
+
+.divider {
   border-right: 3px solid #FABE66;
 }
 
@@ -127,7 +265,7 @@ h1:first-of-type {
   border-radius: 0;
 }
 
-.float-chart{
+.float-chart {
   width: 500px;
   height: 365px;
   position: fixed;
@@ -137,8 +275,13 @@ h1:first-of-type {
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .results {
@@ -151,11 +294,13 @@ h1:first-of-type {
 }
 
 .left {
-  min-width: 40%;
+  max-width: 40%;
+  min-width: 39.9%;
   height: 100%;
 }
 
 .right {
+  width: 100%;
   flex-direction: column;
 }
 

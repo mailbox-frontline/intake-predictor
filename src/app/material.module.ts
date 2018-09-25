@@ -14,11 +14,13 @@ import {
   MatProgressSpinnerModule,
   MatCardModule,
   MatButtonToggleModule,
+  MatSnackBarModule,
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
+    MatSnackBarModule,
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -37,6 +39,7 @@ import {FormsModule} from '@angular/forms';
     MatButtonToggleModule,
   ],
   exports: [
+    MatSnackBarModule,
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,

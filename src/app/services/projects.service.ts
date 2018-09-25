@@ -13,12 +13,73 @@ export class ProjectsService {
   constructor(private http: HttpClient) {}
 
   getAllProjects() {
-    return this.http.get < IProject[] > (this.BASE_URL + '/projects').pipe(retry(2), catchError(this.handleError));
+    return this.http.get < IProject[] > (this.BASE_URL + '/projects').pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
   }
 
-  getAllFormulas() {
-    return this.http.get < IFormular[] > (this.BASE_URL + '/formulas').pipe(retry(2), catchError(this.handleError));
+  addProjectToProjeclist(project: IProject) {
+    return this.http.post < IProject > (this.BASE_URL + '/projects', project ).pipe(
+      retry(2),
+      catchError(this.handleError));
   }
+
+
+
+  getAllFormulas() {
+    return this.http.get < IFormular[] > (this.BASE_URL + '/formulas').pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
+
+  getWaitinglist() {
+    return this.http.get < IProject[] > (this.BASE_URL + '/waitinglist').pipe(
+      retry(2),
+      catchError(this.handleError))
+      ;
+  }
+
+
+  addNewToWaitinglist(newProject: IProject) {
+    return this.http.post < IProject > (this.BASE_URL + '/waitinglist', newProject ).pipe(
+      retry(2),
+      catchError(this.handleError));
+  }
+
+  deleteFromWaitinglistById(p: IProject): Observable<null> {
+    return this.http.delete(this.BASE_URL + '/waitinglist/' + p.id).pipe(
+      map(res => null),
+      catchError(this.handleError));
+  }
+
+
+
+  addProjectToCurrent(newProject: IProject) {
+    return this.http.post < IProject > (this.BASE_URL + '/currentprojects', newProject ).pipe(
+      retry(2),
+      catchError(this.handleError));
+  }
+
+  getAllCurrentProjects() {
+    return this.http.get < IProject[] > (this.BASE_URL + '/currentprojects').pipe(
+      retry(2),
+      catchError(this.handleError));
+  }
+
+  deleteCurrentById(p: IProject): Observable<null> {
+    return this.http.delete(this.BASE_URL + '/currentprojects/' + p.id).pipe(
+      map(res => null),
+      catchError(this.handleError));
+  }
+
+
+
+
+
+
 
   updateFomularById(formula: IFormular) {
     return this.http.put<IFormular>(this.BASE_URL + '/formulas/' + formula.id, formula).pipe(
@@ -26,12 +87,16 @@ export class ProjectsService {
     );
   }
 
+
+
   updateProjectbyId(project: IProject): Observable<IProject> {
     return this.http.put<IProject>(this.BASE_URL + '/projects/' + project.id, project).pipe(
-      map(response => ProjectMaker.create(response),
-      catchError(this.handleError))
+      catchError(this.handleError)
     );
   }
+
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -42,6 +107,11 @@ export class ProjectsService {
     return throwError('Something bad happened; please try again later.');
   }
 }
+
+
+
+
+
 
 @Injectable({providedIn: 'root'})
 export class CalculatorService {
