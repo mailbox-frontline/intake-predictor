@@ -109,12 +109,25 @@ export class WaitingProjectsResolver implements Resolve<IProject[]> {
 @Injectable({
   providedIn: 'root'
 })
-export class AllFormulasResolver implements Resolve<IFormular[]> {
+export class FormulasResolverPro implements Resolve<IFormular[]> {
 
   constructor(private ps: ProjectsService) { }
 
   resolve(): Observable<IFormular[]> {
-    return this.ps.getAllFormulas();
+    return this.ps.getProFormulas();
+  }
+}
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FormulasResolverPri implements Resolve<IFormular[]> {
+
+  constructor(private ps: ProjectsService) { }
+
+  resolve(): Observable<IFormular[]> {
+    return this.ps.getPriFormulas();
   }
 }
 

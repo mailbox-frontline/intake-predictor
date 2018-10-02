@@ -65,8 +65,14 @@ export class PorjectAdjustFormComponent implements OnInit {
   constructor(private cs: CalculatorService, private ps: ProjectsService) {}
 
   ngOnInit() {
+
+    console.log(this.project);
+
+
     ({technologyStack: this.thistech} = this.project);
     this.selected = Array(this.techs.length).fill(false);
+
+    console.log(this.thistech);
 
     this
       .thistech

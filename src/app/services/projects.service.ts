@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {IProject, ProjectMaker, IFormular} from '../interface';
 import {throwError, Observable} from 'rxjs';
 import {catchError, retry, map, filter} from 'rxjs/operators';
-import { resolve } from 'url';
+import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class ProjectsService {
@@ -13,22 +13,29 @@ export class ProjectsService {
   constructor(private http: HttpClient) {}
 
   getAllProjects() {
-    return this.http.get < IProject[] > (this.BASE_URL + '/projects').pipe(
+    return this.http.get < IProject[] > (environment.PROJECTS_URL).pipe(
       retry(2),
       catchError(this.handleError)
     );
   }
 
   addProjectToProjeclist(project: IProject) {
-    return this.http.post < IProject > (this.BASE_URL + '/projects', project ).pipe(
+    return this.http.post < IProject > (environment.PROJECTS_URL, project ).pipe(
       retry(2),
       catchError(this.handleError));
   }
 
 
 
-  getAllFormulas() {
-    return this.http.get < IFormular[] > (this.BASE_URL + '/formulas').pipe(
+  getPriFormulas() {
+    return this.http.get < IFormular[] > (environment.PRIORITY_URL).pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
+  getProFormulas() {
+    return this.http.get < IFormular[] > (environment.PROBOBILITY_URL).pipe(
       retry(2),
       catchError(this.handleError)
     );
@@ -36,7 +43,7 @@ export class ProjectsService {
 
 
   getWaitinglist() {
-    return this.http.get < IProject[] > (this.BASE_URL + '/waitinglist').pipe(
+    return this.http.get < IProject[] > (environment.WAITING_URL).pipe(
       retry(2),
       catchError(this.handleError))
       ;
@@ -44,13 +51,13 @@ export class ProjectsService {
 
 
   addNewToWaitinglist(newProject: IProject) {
-    return this.http.post < IProject > (this.BASE_URL + '/waitinglist', newProject ).pipe(
+    return this.http.post < IProject > (environment.WAITING_URL, newProject ).pipe(
       retry(2),
       catchError(this.handleError));
   }
 
   deleteFromWaitinglistById(p: IProject): Observable<null> {
-    return this.http.delete(this.BASE_URL + '/waitinglist/' + p.id).pipe(
+    return this.http.delete(environment.WAITING_URL + '/' + p.id).pipe(
       map(res => null),
       catchError(this.handleError));
   }
@@ -58,19 +65,19 @@ export class ProjectsService {
 
 
   addProjectToCurrent(newProject: IProject) {
-    return this.http.post < IProject > (this.BASE_URL + '/currentprojects', newProject ).pipe(
+    return this.http.post < IProject > (environment.CURRENT_URL, newProject ).pipe(
       retry(2),
       catchError(this.handleError));
   }
 
   getAllCurrentProjects() {
-    return this.http.get < IProject[] > (this.BASE_URL + '/currentprojects').pipe(
+    return this.http.get < IProject[] > (environment.CURRENT_URL).pipe(
       retry(2),
       catchError(this.handleError));
   }
 
   deleteCurrentById(p: IProject): Observable<null> {
-    return this.http.delete(this.BASE_URL + '/currentprojects/' + p.id).pipe(
+    return this.http.delete(environment.CURRENT_URL + '/' + p.id).pipe(
       map(res => null),
       catchError(this.handleError));
   }
@@ -90,7 +97,7 @@ export class ProjectsService {
 
 
   updateProjectbyId(project: IProject): Observable<IProject> {
-    return this.http.put<IProject>(this.BASE_URL + '/projects/' + project.id, project).pipe(
+    return this.http.put<IProject>(environment.PROJECTS_URL + '/' + project.id, project).pipe(
       catchError(this.handleError)
     );
   }

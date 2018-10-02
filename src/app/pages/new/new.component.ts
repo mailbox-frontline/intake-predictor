@@ -53,7 +53,7 @@ export class NewComponent implements OnInit {
               private cs: CalculatorService) {}
 
   ngOnInit() {
-    this.formulas = this.actr.snapshot.data.formulas || [];
+    this.formulas = [...this.actr.snapshot.data.formulasPri, ...this.actr.snapshot.data.formulasPro] || [];
     this.waitingProjects = this.actr.snapshot.data.watinglist || [];
     this.names = this.actr.snapshot.data.allProjectNames || [];
     this.techs = this.actr.snapshot.data.techs || [];
@@ -61,6 +61,7 @@ export class NewComponent implements OnInit {
     this.selectedP = Array(7).fill(false);
     this.selectedt = Array(this.techs.length).fill(false);
 
+    console.log(this.formulas);
 
     if (this.waitingProjects) {
       this.waitingListNames = this.waitingProjects.map(wp => wp.name);
@@ -330,7 +331,10 @@ export class NewComponent implements OnInit {
 
     // waitinglist API
     this.ps.addNewToWaitinglist(this.newProject).subscribe(
-      (res) => this.waitingProjects.unshift(res)
+      (res) => {
+        console.log(res);
+        this.waitingProjects.unshift(res);
+      }
     );
 
     this.removeNewFromChart();
@@ -352,10 +356,15 @@ export class NewComponent implements OnInit {
   }
 
   add2CurrentList(event) {
-    event.startDate = Date.now();
+    event.createdAt = Date.now();
     this.ps.addProjectToCurrent(event).subscribe(
-      (res => this.removeProjectFromWaiting(res))
+      (res =>  this.ps.deleteFromWaitinglistById(event).subscribe(
+        () => {this.waitingProjects = this.waitingProjects.filter(wp => wp.id !== event.id);
+              console.log(this.waitingProjects); }
+      ))
     );
+
+
 
     this.openSnackBar('Successfully start this project, please go to [All Projects] page to check', 'OK');
   }
@@ -411,8 +420,10 @@ export class NewComponent implements OnInit {
 
     this.newProject = {
       'id': UUID.UUID(),
-      'startDate': null,
-      'completeDate': null,
+      'createdAt': null,
+      'completeAt': null,
+      'waitingAt': null,
+      'updatedAt': null,
       'name': this.newProjectAnswers[0],
       'businessValue': this.newProjectAnswers[4],
       'visibility': this.newProjectAnswers[5],
@@ -491,13 +502,20 @@ export class NewComponent implements OnInit {
   }
 
   refrechNewproject() {
+    this.newProjectPlatform = [];
+    this.newProjectTechs = [];
+    this.newProjectAnswers = [];
     this.showConversation = false;
     this.currentQuestion = null;
+    this.selectedP = Array(7).fill(false);
+    this.selectedt = Array(this.techs.length).fill(false);
     this.qas = [];
     this.newProject = {
       'id': UUID.UUID(),
-      'startDate': null,
-      'completeDate': null,
+      'createdAt': null,
+      'completeAt': null,
+      'waitingAt': null,
+      'updatedAt': null,
       'name': null,
       'businessValue': null,
       'visibility': null,

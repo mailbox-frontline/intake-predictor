@@ -14,13 +14,13 @@
           <mat-chip *ngSwitchCase="'f'" >Failure</mat-chip>
         </mat-chip-list>
 
-        <div *ngIf="!project.result && !project.startDate" class="result">
+        <div *ngIf="!project.result && !project.createdAt" class="result">
             <button mat-button (click)="removeFromWaitingList($event)">Remove</button>&nbsp;
             <button mat-stroked-button color="warn" (click)="addToCurrentList($event)">Start</button>
         </div>
 
-        <div *ngIf="!project.result && project.startDate" class="result">
-            <button mat-button>From: {{project.startDate | date:'mediumDate'}}</button>&nbsp;
+        <div *ngIf="!project.result && project.createdAt" class="result">
+            <button mat-button>From: {{project.createdAt | date:'mediumDate'}}</button>&nbsp;
             <button mat-stroked-button color="warn"(click)="move2ProjectList($event)">Done</button>
         </div>
 
@@ -39,7 +39,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="text" placeholder="Start Date" value="{{project.startDate | date:'mediumDate'}}" disabled>
+          <input matInput type="text" placeholder="Start Date" value="{{project.createdAt | date:'mediumDate'}}" disabled>
         </mat-form-field>
  
         <mat-form-field>

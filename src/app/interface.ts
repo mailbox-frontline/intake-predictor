@@ -1,7 +1,9 @@
 export interface IProject {
   id: number | string;
-  startDate: number;
-  completeDate: number;
+  createdAt: number;
+  waitingAt: number;
+  completeAt: number;
+  updatedAt: number;
   name: string;
   businessValue: string;
   visibility: string;

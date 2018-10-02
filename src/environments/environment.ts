@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+
+  // POST/GET/PUT/DELETE - https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/projects
+  // GET/PUT/DELETE - https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/projects/{id}
+
+  production: false,
+  PROJECTS_URL: 'https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/projects',
+  CURRENT_URL: 'https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/currentProjects',
+  WAITING_URL: 'https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/waitingList',
+  PRIORITY_URL: 'https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/formulasPriority',
+  PROBOBILITY_URL: 'https://bsiexe3kuc.execute-api.us-east-1.amazonaws.com/dev/formulasProbobility'
+
 };
 
 /*

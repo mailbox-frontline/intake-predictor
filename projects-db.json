@@ -1,9 +1,7 @@
 {
   "projects": [
     {
-      "id": 1,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Angular Training",
       "businessValue": "Low",
       "visibility": "High",
@@ -25,7 +23,7 @@
     },
     {
       "id": 2,
-      "startDate": 1537197549790,
+      "createdAt": 1537197549790,
       "completeDate": null,
       "name": "Biometrics Phase 1",
       "businessValue": "Low",
@@ -53,7 +51,7 @@
     },
     {
       "id": 3,
-      "startDate": 1537197549790,
+      "createdAt": 1537197549790,
       "completeDate": null,
       "name": "Biometrics Phase 2",
       "businessValue": "Low",
@@ -80,8 +78,7 @@
       "result": "s"
     },
     {
-      "id": 4,
-      "startDate": 1537197549790,
+      
       "completeDate": null,
       "name": "Biometrics Phase 3",
       "businessValue": "High",
@@ -111,9 +108,7 @@
       "result": "s"
     },
     {
-      "id": 5,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Card Tap",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -135,9 +130,7 @@
       "result": "s"
     },
     {
-      "id": 6,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Monarch Phase 1 - Web",
       "businessValue": "High",
       "visibility": "Medium",
@@ -160,9 +153,7 @@
       "result": "s"
     },
     {
-      "id": 7,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Monarch Phase 2 - iOS",
       "businessValue": "High",
       "visibility": "Medium",
@@ -184,9 +175,7 @@
       "result": "s"
     },
     {
-      "id": 8,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Monarch Phase 3 - flooeplan",
       "businessValue": "High",
       "visibility": "Medium",
@@ -210,9 +199,7 @@
       "result": "s"
     },
     {
-      "id": 9,
-      "startDate": 1537197549790,
-      "completeDate": null,
+      "completeAt": null,
       "name": "Townhall.ninja",
       "businessValue": "Low",
       "visibility": "High",
@@ -241,9 +228,8 @@
       "result": "h"
     },
     {
-      "id": 10,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "Damien Townhall video",
       "businessValue": "Low",
       "visibility": "High",
@@ -264,9 +250,8 @@
       "result": "s"
     },
     {
-      "id": 11,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "Tweet streaming",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -288,9 +273,8 @@
       "result": "h"
     },
     {
-      "id": 12,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "mTimer",
       "businessValue": "Low",
       "visibility": "High",
@@ -313,9 +297,8 @@
       "result": "s"
     },
     {
-      "id": 13,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "QR-scanner(DL)",
       "businessValue": "High",
       "visibility": "High",
@@ -338,9 +321,8 @@
       "result": "s"
     },
     {
-      "id": 14,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "SonarQube",
       "businessValue": "High",
       "visibility": "Low",
@@ -361,9 +343,8 @@
       "result": "s"
     },
     {
-      "id": 15,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "RoboDing",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -389,9 +370,8 @@
       "result": "s"
     },
     {
-      "id": 16,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "Wi-Fi indoor location",
       "businessValue": "High",
       "visibility": "Low",
@@ -414,9 +394,8 @@
       "result": "f"
     },
     {
-      "id": 17,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "Beacon-workspace check in/out",
       "businessValue": "High",
       "visibility": "Low",
@@ -439,9 +418,8 @@
       "result": "h"
     },
     {
-      "id": 18,
-      "startDate": 1537197549790,
-      "completeDate": null,
+
+      "completeAt": null,
       "name": "easyBI analysis",
       "businessValue": "Medium",
       "visibility": "Low",
@@ -465,9 +443,8 @@
   "waitinglist": [],
   "currentprojects": [
     {
-      "id": "fb67f860-6566-af22-818e-21184fbddb03",
-      "startDate": 1537899262086,
-      "completeDate": null,
+      "id": "fb67f860-6566-af22-818e-21",
+      "completeAt": null,
       "name": "test1",
       "businessValue": "Medium",
       "visibility": "Medium",

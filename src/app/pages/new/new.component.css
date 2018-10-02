@@ -108,6 +108,10 @@
   margin-top: 5px;
 }
 
+.save-btns{
+  margin-left: auto;
+}
+
 .answer-area-edit{
   margin-top: 5px;
   background-color: #fbbf5e;

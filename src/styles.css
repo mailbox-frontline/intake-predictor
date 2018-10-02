@@ -9,6 +9,10 @@ body {
   background: linear-gradient(to right, #ece9e6, #ffffff);
 }
  #footer{
+   transform: rotate(270deg);
+   position: fixed;
+   right: -3rem;
+   bottom: 4rem;
    text-align: center;
    font-weight: 200;
  }

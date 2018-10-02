@@ -87,7 +87,7 @@
                       [selectable]="true" [selected]="selectedP[i]" (click)="editPlatform($event, i)">{{option}}</mat-chip>
                   </mat-chip-list>
                 </div>
-                <div *ngSwitchCase="'techs'" class="option-chips">
+                <div *ngSwitchCase="'techs'">
                     <mat-chip-list [multiple]="true">
                       <mat-chip *ngFor="let option of editingQuestion.options; let i = index;" color="accent" class="techlist"
                         [selectable]="true" [selected]="selectedt[i]" (click)="editTechs($event, i)">{{option}}</mat-chip>
@@ -107,7 +107,7 @@
         <button *ngIf="!showConversation" mat-flat-button (click)="startNewProject()">
           Start A New Project
         </button>
-        <div *ngIf="showConversation && currentQuestion">
+        <div class="save-btns" *ngIf="showConversation && currentQuestion">
           <button *ngIf="!editingPreAnswer"  mat-flat-button (click)="saveAnswer()">Save</button>
           <button *ngIf="editingPreAnswer"  mat-stroked-button color="primary" (click)="saveEdit()">Save Change</button>
         </div>

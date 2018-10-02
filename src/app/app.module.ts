@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 // tslint:disable-next-line:max-line-length
-import { AllProjectsResolver, Top5ProjectsResolver, TechStackResolver, ScoreResolver, ProjectNameResolver, WaitingProjectsResolver, AllFormulasResolver, WaitinglistResolver, CurrentProjectsResolver } from './resolvers/projects.resolver';
+import { Top5ProjectsResolver, TechStackResolver, ScoreResolver, ProjectNameResolver, WaitinglistResolver, CurrentProjectsResolver, FormulasResolverPri, FormulasResolverPro } from './resolvers/projects.resolver';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MaterialModule} from './material.module';
@@ -30,7 +30,8 @@ const appRoutes: Routes = [
     resolve: {
       top5Projects: Top5ProjectsResolver,
       techs: TechStackResolver,
-      formulas: AllFormulasResolver,
+      formulasPri: FormulasResolverPri,
+      formulasPro: FormulasResolverPro,
       currentProjects: CurrentProjectsResolver,
     }
   }, {
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
       techs: TechStackResolver,
       scores: ScoreResolver,
       allProjectNames: ProjectNameResolver,
-      formulas: AllFormulasResolver,
+      formulasPri: FormulasResolverPri,
+      formulasPro: FormulasResolverPro,
       watinglist: WaitinglistResolver,
     }
   }

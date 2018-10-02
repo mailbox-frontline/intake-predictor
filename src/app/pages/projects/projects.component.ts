@@ -39,12 +39,10 @@ import { ProjectsService } from '../../services/projects.service';
       </app-porject-adjust-form>
       <button mat-stroked-button color="primary" id="load-btn" (click)="loadAllProjects()">{{loadBtnText}}</button>
 
-
       <div class="config-title">
         <h2>Formula Configuration</h2>
       </div>
       <app-config [formulas]="formulas" (newFormulas)="onNewFormulas($event)"></app-config>
-
 
     </div>
   `,
@@ -92,11 +90,11 @@ export class ProjectsComponent implements OnInit {
     this.top5Projects = this.actr.snapshot.data.top5Projects || [];
     this.currentProjects = this.actr.snapshot.data.currentProjects || [];
     this.techs = this.actr.snapshot.data.techs || [];
-    this.formulas = this.actr.snapshot.data.formulas || [];
+    this.formulas = [...this.actr.snapshot.data.formulasPri, ...this.actr.snapshot.data.formulasPro] || [];
 
     this.updateOptions();
 
-    console.log(this.option1);
+    console.log(this.techs);
   }
 
   onNewFormulas(event) {
@@ -122,7 +120,10 @@ export class ProjectsComponent implements OnInit {
 
     if (!this.showAll) {
       this.ps.getAllProjects().subscribe(
-        (res) => this.top5Projects = res
+        (res) => {
+          this.top5Projects = res;
+          console.log(res);
+        }
       );
       this.showAll = true;
       this.loadBtnText = 'Collapse';
